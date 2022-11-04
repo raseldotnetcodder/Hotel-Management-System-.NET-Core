@@ -1,0 +1,67 @@
+﻿@model HotelApplication.Models.RoomType
+
+@{
+    ViewData["Title"] = "Save";
+}
+
+<div class="row">
+    <div class="col-md-1">
+        <a asp-action="Index" class="btn btn-light" style="border-radius:50%"><i class='bx bx-arrow-back'></i></a>
+    </div>
+    <div class="col-md-5">
+        <h3 class="h3">Add Room Catagory</h3>
+    </div>
+</div>
+
+<div class="container">
+    <form asp-action="Save" enctype="multipart/form-data">
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" id="id" />
+
+                <div class="row form-group">
+                    <label asp-for="RoomTypeName" class="col-sm-3 control-label"></label>
+                    <div class="col-sm-9">
+                        <input asp-for="RoomTypeName" class="form-control" id="roomTypeName" />
+                    </div>
+                    <span asp-validation-for="RoomTypeName" class="text-danger"></span>
+                </div>
+
+                <div class="row form-group">
+                    <label asp-for="BasePrice" class="col-sm-3 control-label"></label>
+                    <div class="col-sm-9">
+                        <input asp-for="BasePrice" class="form-control" id="basePrice" />
+                    </div>
+                    <span asp-validation-for="BasePrice" class="text-danger"></span>
+                </div>
+                <div class="row form-group">
+                    <label asp-for="Description" class="col-sm-3 control-label"></label>
+                    <div class="col-sm-9">
+                        <textarea asp-for="Description" class="form-control" id="description"></textarea>
+                    </div>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="row form-group">
+                    <label asp-for="ImageUrl" class="col-sm-3 control-label"></label>
+                    <input asp-for="ImageUrl" type="hidden" class="form-control" id="imageUrl" />
+                    <div class="col-sm-9">
+                        <input type="file" name="Files" accept="image/jpeg, image/png" onchange="Preview(this, document.getElementById('imagePreview'))" class="form-control-file img-thumbnail" />
+                    </div>
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group text-center">
+                    <img src="@Model.ImageUrl" alt="Photo" class=" img-thumbnail float-right" style="width:225px;" id="imagePreview" />
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="form-group" style="text-align:center;">
+            <input type="submit" value="Save" class="col-sm-9 btn btn-primary" style="border-radius:50px;" />
+        </div>
+    </form>
+</div>

@@ -1,0 +1,54 @@
+﻿@model HotelApplication.Models.RoomType
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="h3">Room Catagory</h3>
+    </div>
+    <div class="col-md-6">
+        <div style="text-align:right;">
+            <a asp-action="Save" class="btn btn-primary" style="width:300px;"><i class='bx bx-plus'></i> Room Catagory</a>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped" style="margin-top:30px">
+    <thead>
+        <tr>
+            <th> SL. </th>
+            <th> @Html.DisplayNameFor(x => x.RoomTypeName) </th>
+            <th> @Html.DisplayNameFor(x => x.BasePrice) </th>
+            <th> @Html.DisplayNameFor(x => x.Description) </th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 1;
+            foreach (var item in Model.RoomTypes)
+            {
+                <tr>
+                    <td> @i. </td>
+                    <td> @Html.DisplayFor(modelItem => item.RoomTypeName) </td>
+                    <td> @Html.DisplayFor(modelItem => item.BasePrice) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Description) </td>
+                    <td class="text-center">
+                        <a class="btn btn-sm btn-success" asp-action="Save" asp-route-id="@item.Id"><i class='bx bx-edit'></i></a> |
+                        <a class="btn btn-sm btn-info text-white" onclick="showInPopup('@Url.Action("Details", "RoomType", new { id = item.Id }, Context.Request.Scheme)')"><i class='bx bx-info-circle'></i></a> |
+                        <a class="btn btn-sm btn-danger" onclick="Delete(@item.Id)" href="#"><i class='bx bx-trash'></i></a>
+                    </td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>
+
+<script>
+    function Delete(id) {
+        location.replace("/RoomInformation/RoomType/Delete/" + id);
+    }
+</script>

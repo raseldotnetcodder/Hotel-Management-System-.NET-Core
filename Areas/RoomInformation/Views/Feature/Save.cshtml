@@ -1,0 +1,51 @@
+﻿
+@model HotelApplication.Models.Feature
+
+@{
+    ViewData["Title"] = "Save";
+}
+
+<div class="row">
+    <div class="col-md-1">
+        <a asp-action="Index" class="btn btn-light" style="border-radius:50%"><i class='bx bx-arrow-back'></i></a>
+    </div>
+    <div class="col-md-5">
+        <h3 class="h3">Feature</h3>
+    </div>
+</div>
+
+<div class="container">
+    <form asp-action="Save" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" id="id" />
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row form-group">
+                    <label asp-for="Name" class="col-sm-4 control-label"></label>
+                    <div class="col-sm-8">
+                        <input asp-for="Name" class="form-control" id="name" />
+                    </div>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="row form-group">
+                    <label asp-for="Icon" class="col-sm-4 control-label"></label>
+                    <input asp-for="Icon" type="hidden" class="form-control" id="icon" />
+                    <div class="col-sm-8">
+                        <input type="file" name="Files" accept="image/jpeg, image/png" onchange="Preview(this, document.getElementById('imagePreview'))" class="form-control-file img-thumbnail" />
+                    </div>
+                    <span asp-validation-for="Icon" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group text-center">
+                    <img src="@Model.Icon" alt="Photo" class=" img-thumbnail float-right" style="width:100px;" id="imagePreview" />
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="form-group" style="text-align:center;">
+            <input type="submit" value="Save" class="col-sm-6 btn btn-primary" style="border-radius:50px;" />
+        </div>
+    </form>
+</div>

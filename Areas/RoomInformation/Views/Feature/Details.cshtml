@@ -1,0 +1,16 @@
+﻿@model HotelApplication.Models.Feature
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+<h4>Feature Details</h4>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Name) </dt>
+        <dd class="col-sm-7"> @Html.DisplayFor(model => model.Name) </dd>
+        <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Icon) </dt>
+        <dd class="col-sm-7"> <img src="@Model.Icon" alt="Photo" style="width:200px; border-radius:5px;" /> </dd>
+    </dl>
+</div>

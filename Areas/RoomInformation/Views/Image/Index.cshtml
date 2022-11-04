@@ -1,0 +1,56 @@
+﻿@model IEnumerable<HotelApplication.Models.Image>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row" style="margin-bottom:20px;">
+    <div class="col-md-6">
+        <h3 class="h3">Images</h3>
+    </div>
+    <div class="col-md-6">
+        <div style="text-align:right;">
+            <a asp-action="Create" class="btn btn-primary" style="width:300px;"><i class='bx bx-plus'></i> Images</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 panel">
+            <div style="background-color: #E5E4E2; margin: 2px; border-radius: 5px;">
+                <img class="img-thumbnail img-responsive" src="@item.ImageUrl" asp-append-version="true" alt="@item.Name" width="400" />
+                <div class="panel-group" style="padding: 10px;">
+                    <p>@item.Name</p>
+                    <p class="small">@item.Size</p>
+                </div>
+                <div class="panel-footer" style="padding: 10px;">
+                    <a asp-action="Delete" data-image-id="@item.Id" data-image-name="@item.Name" data-toggle="modal" data-target="#DeleteModal" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="modal fade" id="DeleteModal" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Image?</h4>
+            </div>
+            <div class="modal-body">
+                <p id="DeleteConfirmation"></p>
+            </div>
+            <div class="modal-footer">
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" name="id" value="" />
+                    <input type="submit" value="Delete" class="btn btn-success" />
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

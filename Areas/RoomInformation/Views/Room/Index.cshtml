@@ -1,0 +1,72 @@
+﻿
+@model HotelApplication.ViewModels.RoomsAdminIndexViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="h3">Room</h3>
+    </div>
+    <div class="col-md-6">
+        <div style="text-align:right;">
+            <a asp-action="Save" class="btn btn-primary" style="width:300px;"><i class='bx bx-plus'></i> Room</a>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped" style="margin-top:30px">
+    <thead>
+        <tr>
+            <th> SL. </th>
+            <th> Room Number </th>
+            <th> Room Catagory </th>
+            <th> Price </th>
+            <th> Available </th>
+            <th> Description </th>
+            <th> Maximum Guests </th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 1;
+            foreach (var item in Model.Rooms)
+            {
+                <tr>
+                    <td> @i. </td>
+                    <td> @Html.DisplayFor(modelItem => item.RoomNumber) </td>
+                    <td> @Html.DisplayFor(modelItem => item.RoomType.RoomTypeName) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Price) </td>
+                    <td class="text-center"> @Html.DisplayFor(modelItem => item.Available) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Description) </td>
+                    <td class="text-center"> @Html.DisplayFor(modelItem => item.MaximumGuests) </td>
+                    <td class="text-center">
+                        <a class="btn btn-sm btn-success" asp-action="Save" asp-route-id="@item.Id"><i class='bx bx-edit'></i></a> |
+                        <a class="btn btn-sm btn-info text-white" onclick="showInPopup('@Url.Action("Details", "Room", new { id = item.Id }, Context.Request.Scheme)')"><i class='bx bx-info-circle'></i></a> |
+                        <a class="btn btn-sm btn-danger" onclick="Delete(@item.Id)" href="#"><i class='bx bx-trash'></i></a>
+                    </td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>
+
+<script>
+    function Edit(id, roomNumber, roomTypeId, price, avilable, description, maximumGuests) {
+        $('#id').val(id);
+        $('#roomNumber').val(roomNumber);
+        $('#roomTypeId').val(roomTypeId);
+        $('#price').val(price);
+        $('#avilable').val(avilable);
+        $('#description').val(description);
+        $('#maximumGuests').val(maximumGuests);
+
+    }
+
+    function Delete(id) {
+        location.replace("/RoomInformation/Room/Delete/" + id);
+    }
+</script>

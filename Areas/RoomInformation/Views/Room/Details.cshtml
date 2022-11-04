@@ -1,0 +1,44 @@
+﻿@model HotelApplication.Models.Room
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+<h4>Room Details</h4>
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-md-7">
+            <dl class="row">
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.RoomNumber) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.RoomNumber) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.RoomType.RoomTypeName) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.RoomTypeId) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Price) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Price) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Available) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Available) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.MaximumGuests) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.MaximumGuests) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Description) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Description) </dd>
+            </dl>
+        </div>
+        <div class="col-md-5">
+            <h4>Features</h4>
+            @foreach (var feature in ViewBag.Features as IEnumerable<Feature>)
+            {
+                <div class="row" style="margin-bottom:3px;">
+                    <p class="col-sm-5">@feature.Name</p>
+                    <img class="img-responsive" style="border-radius:5px;" width="80" height="60" src="@feature.Icon" asp-append-version="true" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <h4>Images</h4>
+    @foreach (var image in ViewBag.Images as IEnumerable<Image>)
+    {
+        <img class="col-sm-12" style="width: 185px; padding: 5px; border-radius: 10px; " src="@image.ImageUrl" asp-append-version="true" alt="@image.Name" />
+    }
+</div>

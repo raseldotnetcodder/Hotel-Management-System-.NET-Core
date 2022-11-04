@@ -1,0 +1,58 @@
+﻿@model HotelApplication.Models.Image
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-1">
+        <a asp-action="Index" class="btn btn-light" style="border-radius:50%"><i class='bx bx-arrow-back'></i></a>
+    </div>
+    <div class="col-md-5">
+        <h3 class="h3">Images</h3>
+    </div>
+</div>
+
+<form asp-action="Create" enctype="multipart/form-data" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <hr />
+    <div class="row form-group">
+        <label class="col-md-4">Upload Image's </label>
+        <div class="col-md-8">
+            <input type="file" multiple class="form-control-file img-thumbnail" name="Files" />
+        </div>
+    </div>
+    <hr />
+    <div class="form-group" style="text-align:center;">
+        <input type="submit" value="Create" class="col-sm-9 btn btn btn-primary" style="border-radius:50px;" />
+    </div>
+</form>
+
+<div>
+    @if (ViewBag.AddedImages != null)
+    {
+        @foreach (var item in ViewBag.AddedImages as List<string>)
+        {
+            <div class="alert alert-success">
+                <strong>@item</strong>
+            </div>
+        }
+
+    }
+
+    @if (ViewBag.UploadErrors != null)
+    {
+        foreach (var item in ViewBag.UploadErrors as List<string>)
+        {
+            <div class="alert alert-danger">
+                <strong>@item</strong>
+            </div>
+        }
+
+    }
+</div>
+
+@*@section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@

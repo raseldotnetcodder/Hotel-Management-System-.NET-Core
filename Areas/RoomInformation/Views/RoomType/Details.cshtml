@@ -1,0 +1,20 @@
+﻿@model HotelApplication.Models.RoomType
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+<h4>Room Type Details</h4>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.RoomTypeName) </dt>
+        <dd class="col-sm-8"> @Html.DisplayFor(model => model.RoomTypeName) </dd>
+        <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.BasePrice) </dt>
+        <dd class="col-sm-8"> @Html.DisplayFor(model => model.BasePrice) </dd>
+        <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Description) </dt>
+        <dd class="col-sm-8"> @Html.DisplayFor(model => model.Description) </dd>
+        <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.ImageUrl) </dt>
+        <dd class="col-sm-8"> <img src="@Model.ImageUrl" alt="Photo" style="width:200px; border-radius:5px;" /> </dd>
+    </dl>
+</div>
