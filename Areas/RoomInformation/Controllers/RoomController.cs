@@ -91,5 +91,11 @@ namespace HotelApplication.Areas.RoomInformation.Controllers
             await service.Delete(data);
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> CheckRoomNo(int roomNo)
+        {
+            var result = await service.CheckRoomNo(roomNo);
+            return Json(result);
+        }
     }
 }

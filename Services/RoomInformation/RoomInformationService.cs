@@ -149,7 +149,6 @@ namespace HotelApplication.Services.RoomInformation
                         var UpdatedFileName = FileNameWithoutExtension + _ext;
                         var UpdatedFilePath = Path.Combine(imagesFolder, UpdatedFileName);
                         ExistingFilePath = UpdatedFilePath;
-
                     }
                     NewFileName = FileNameWithoutExtension + _ext;
                     var filePath = Path.Combine(imagesFolder, NewFileName);
@@ -266,6 +265,17 @@ namespace HotelApplication.Services.RoomInformation
                 Room = roomDetails
             };
             return room;
+        }
+
+        public async Task<int> CheckRoomNo(int roomNo)
+        {
+            var result = await context.Rooms.Where(x => x.RoomNumber == roomNo).Select(x => x.RoomNumber).FirstOrDefaultAsync();
+            if (result != 0)
+            {
+                result = 2147483646;
+                return result;
+            }
+            return result;
         }
     }
 }

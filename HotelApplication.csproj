@@ -27,6 +27,8 @@
 
 
   <ItemGroup>
+    <Folder Include="Areas\Bookings\Data\" />
+    <Folder Include="Areas\Bookings\Models\" />
     <Folder Include="Areas\RoomInformation\Data\" />
     <Folder Include="Areas\RoomInformation\Models\" />
   </ItemGroup>

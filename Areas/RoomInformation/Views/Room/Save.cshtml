@@ -25,7 +25,7 @@
                 <div class="row form-group">
                     <label asp-for="RoomNumber" class="col-sm-4 control-label"></label>
                     <div class="col-sm-8">
-                        <input asp-for="RoomNumber" class="form-control" id="roomNumber" />
+                        <input asp-for="RoomNumber" class="form-control" onchange="CheckRoomNo()" id="roomNumber" maxlength="4" name="roomNumber" required />
                     </div>
                     <span asp-validation-for="RoomNumber" class="text-danger"></span>
                 </div>
@@ -131,14 +131,35 @@
 </div>
 
 <script>
-    $(document).ready(function () {
+    function CheckRoomNo() {
+        var roomNo = $('#roomNumber').val();
+        if (roomNo != "") {
             $.ajax({
-            url: "/RoomInformation/Image/GetAllImagesJson",
-            type: "GET",
-            cache: true,
-            success: function (result) {
-                $('.modal-body').prepend(result);
-                console.log("Modal");
+                url: '/RoomInformation/Room/CheckRoomNo?roomNo=' + roomNo,
+                type: "GET",
+                success: function (response) {
+                    if (response == 2147483646) {
+                        alert('This Room Number is Already Exist!');
+                        $('#roomNumber').val('');
+                        return false;
+                    }
+                },
+                failure: function () {
+                    alert('failed');
+                }
+            });
+
+        }
+    }
+
+    $(document).ready(function () {
+        $.ajax({
+        url: "/RoomInformation/Image/GetAllImagesJson",
+        type: "GET",
+        cache: true,
+        success: function (result) {
+            $('.modal-body').prepend(result);
+            console.log("Modal");
             }
         });
 

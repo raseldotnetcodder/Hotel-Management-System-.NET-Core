@@ -70,6 +70,12 @@ namespace HotelApplication
                   name: "areas",
                   template: "{area:exists}/{controller=RoomType}/{action=Index}/{id?}");
             });
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                  name: "areas",
+                  template: "{area:exists}/{controller=Booking}/{action=BookingList}/{id?}");
+            });
         }
     }
 }

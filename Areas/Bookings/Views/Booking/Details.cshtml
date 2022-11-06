@@ -1,0 +1,84 @@
+﻿@model HotelApplication.Models.Booking
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+
+<div>
+    <h3 class="h3">Booking</h3>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <dl class="row">
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.RoomNo) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.RoomNo) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.CustomerName) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.CustomerName) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.CustomerEmail) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.CustomerEmail) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.CustomerPhone) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.CustomerPhone) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.CustomerAddress) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.CustomerAddress) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Remarks) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Remarks) </dd>
+            </dl>
+        </div>
+        <div class="col-md-6">
+            <dl class="row">
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.DateCreated) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.DateCreated) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.CheckIn) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.CheckIn) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.CheckOut) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.CheckOut) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.TotalFee) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.TotalFee) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Paid) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Paid) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Completed) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Completed) </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
+<div>
+    <h3 class="h3">Room Details</h3>
+    <hr />
+    <div class="row">
+        <div class="col-md-7">
+            <dl class="row">
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Room.RoomNumber) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Room.RoomNumber) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Room.RoomType.RoomTypeName) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Room.RoomType.RoomTypeName) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Room.Price) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Room.Price) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Room.Available) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Room.Available) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Room.MaximumGuests) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Room.MaximumGuests) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Room.Description) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Room.Description) </dd>
+            </dl>
+        </div>
+        <div class="col-md-5">
+            <h4>Features</h4>
+            @foreach (var feature in ViewBag.Features as IEnumerable<Feature>)
+            {
+                <div class="row" style="margin-bottom:3px;">
+                    <p class="col-sm-5">@feature.Name</p>
+                    <img class="img-responsive" style="border-radius:5px;" width="80" height="60" src="@feature.Icon" asp-append-version="true" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <h4>Images</h4>
+    @foreach (var image in ViewBag.Images as IEnumerable<Image>)
+    {
+        <img class="col-sm-12" style="width: 185px; padding: 5px; border-radius: 10px; " src="@image.ImageUrl" asp-append-version="true" alt="@image.Name" />
+    }
+</div>

@@ -49,8 +49,6 @@ F:\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Fe
 F:\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Room\Save.cshtml.g.cs
 F:\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 F:\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Shared\GetAllImagesPartial.cshtml.g.cs
-F:\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Booking\Index.cshtml.g.cs
-F:\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Booking\Details.cshtml.g.cs
 C:\Users\nahid\OneDrive\Desktop\New folder\Hotel-Management-System\bin\Debug\netcoreapp2.2\appsettings.Development.json
 C:\Users\nahid\OneDrive\Desktop\New folder\Hotel-Management-System\bin\Debug\netcoreapp2.2\appsettings.json
 C:\Users\nahid\OneDrive\Desktop\New folder\Hotel-Management-System\bin\Debug\netcoreapp2.2\HotelApplication.deps.json
@@ -105,3 +103,73 @@ C:\Users\nahid\OneDrive\Desktop\New folder\Hotel-Management-System\obj\Debug\net
 C:\Users\nahid\OneDrive\Desktop\New folder\Hotel-Management-System\obj\Debug\netcoreapp2.2\HotelApplication.genruntimeconfig.cache
 C:\Users\nahid\OneDrive\Desktop\New folder\Hotel-Management-System\obj\Debug\netcoreapp2.2\HotelApplication.csproj.CopyComplete
 C:\Users\nahid\OneDrive\Desktop\New folder\Hotel-Management-System\obj\Debug\netcoreapp2.2\Razor\Views\Dashboard\Index.cshtml.g.cs
+F:\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Views\Dashboard\Index.cshtml.g.cs
+F:\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Booking\Details.cshtml.g.cs
+F:\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Booking\Index.cshtml.g.cs
+F:\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Shared\GetAllImagesPartial.cshtml.g.cs
+F:\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Shared\_Layout.cshtml.g.cs
+F:\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+F:\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\_ViewImports.cshtml.g.cs
+F:\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\_ViewStart.cshtml.g.cs
+F:\GitHub\HotelApplication\bin\Debug\netcoreapp2.2\appsettings.Development.json
+F:\GitHub\HotelApplication\bin\Debug\netcoreapp2.2\appsettings.json
+F:\GitHub\HotelApplication\bin\Debug\netcoreapp2.2\HotelApplication.deps.json
+F:\GitHub\HotelApplication\bin\Debug\netcoreapp2.2\HotelApplication.runtimeconfig.json
+F:\GitHub\HotelApplication\bin\Debug\netcoreapp2.2\HotelApplication.runtimeconfig.dev.json
+F:\GitHub\HotelApplication\bin\Debug\netcoreapp2.2\HotelApplication.dll
+F:\GitHub\HotelApplication\bin\Debug\netcoreapp2.2\HotelApplication.pdb
+F:\GitHub\HotelApplication\bin\Debug\netcoreapp2.2\HotelApplication.Views.dll
+F:\GitHub\HotelApplication\bin\Debug\netcoreapp2.2\HotelApplication.Views.pdb
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.csproj.AssemblyReference.cache
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.GeneratedMSBuildEditorConfig.editorconfig
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.AssemblyInfoInputs.cache
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.AssemblyInfo.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.csproj.CoreCompileInputs.cache
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.RazorAssemblyInfo.cache
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.RazorAssemblyInfo.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.TagHelpers.input.cache
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.TagHelpers.output.cache
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.RazorCoreGenerate.cache
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Booking\Details.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Booking\Index.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Shared\GetAllImagesPartial.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Shared\_Layout.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\_ViewImports.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\_ViewStart.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Feature\Details.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Feature\Index.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Feature\Save.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Image\Create.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Image\Delete.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Image\Index.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\RoomType\Details.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\RoomType\Index.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\RoomType\Save.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Room\Details.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Room\Index.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Room\Save.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Shared\GetAllImagesPartial.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Shared\_Layout.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\_ViewImports.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\RoomInformation\Views\_ViewStart.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Views\Dashboard\Index.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.RazorTargetAssemblyInfo.cache
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.RazorTargetAssemblyInfo.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.Views.pdb
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.dll
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.pdb
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.genruntimeconfig.cache
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.csproj.CopyComplete
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Booking\Save.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Booking\BookingList.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Booking\Edit.cshtml.g.cs

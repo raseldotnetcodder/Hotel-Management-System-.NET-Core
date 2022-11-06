@@ -25,5 +25,7 @@ namespace HotelApplication.Services.Interface
         void UpdateRoomImagesList(Room room, int[] imageIDs);
         Task<RoomFeaturesAndImagesViewModel> GetRoomFeaturesAndImages(Room room);
         Task<Booking> GetRoomDetailsByID(int id);
+
+        Task<int> CheckRoomNo(int roomNo);
     }
 }

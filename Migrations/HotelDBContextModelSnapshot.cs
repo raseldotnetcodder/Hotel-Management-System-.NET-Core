@@ -76,17 +76,19 @@ namespace HotelApplication.Migrations
 
             modelBuilder.Entity("HotelApplication.Models.Booking", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("BookingId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ApplicationUserId");
+                    b.Property<int?>("ApplicationUserId");
 
                     b.Property<string>("ApplicationUserId1");
 
-                    b.Property<DateTime>("CheckIn");
+                    b.Property<DateTime>("CheckIn")
+                        .HasColumnType("datetime");
 
-                    b.Property<DateTime>("CheckOut");
+                    b.Property<DateTime>("CheckOut")
+                        .HasColumnType("datetime");
 
                     b.Property<bool>("Completed");
 
@@ -98,7 +100,8 @@ namespace HotelApplication.Migrations
 
                     b.Property<string>("CustomerPhone");
 
-                    b.Property<DateTime>("DateCreated");
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime");
 
                     b.Property<int>("Guests");
 
@@ -108,10 +111,12 @@ namespace HotelApplication.Migrations
 
                     b.Property<int>("RoomId");
 
+                    b.Property<int>("RoomNo");
+
                     b.Property<decimal>("TotalFee")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("Id");
+                    b.HasKey("BookingId");
 
                     b.HasIndex("ApplicationUserId1");
 
