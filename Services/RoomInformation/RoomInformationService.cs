@@ -193,11 +193,13 @@ namespace HotelApplication.Services.RoomInformation
         {
             var rooms = context.Rooms.ToList();
             var roomtypes = context.RoomTypes.ToList();
+            var bookings = context.Bookings.ToList();
 
             var RoomsAdminIndeViewModel = new RoomsAdminIndexViewModel
             {
                 Rooms = rooms,
-                RoomTypes = roomtypes
+                RoomTypes = roomtypes,
+                BookingList = bookings
             };
             return RoomsAdminIndeViewModel;
         }

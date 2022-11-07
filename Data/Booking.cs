@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelApplication.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -47,6 +48,9 @@ namespace HotelApplication.Models
         public bool Completed { get; set; }
         public int? ApplicationUserId { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
+
+        [NotMapped]
+        public RoomsAdminIndexViewModel ListOfRoomBooking { get; set; }
 
         [NotMapped]
         public IEnumerable<Booking> Bookings { get; set; }

@@ -9,6 +9,11 @@ namespace HotelApplication.Models
 {
     public class Room
     {
+        public Room()
+        {
+            Available = true;
+        }
+
         public int Id { get; set; }
 
         [Display(Name = "Room Number")]

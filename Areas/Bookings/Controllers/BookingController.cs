@@ -31,8 +31,33 @@ namespace HotelApplication.Areas.Bookings.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var data = service.GetAllRoomsAndRoomTypes();
-            return View(data);
+            Booking booking = new Booking
+            {
+                ListOfRoomBooking = service.GetAllRoomsAndRoomTypes(),
+                Bookings = await service.Get()
+            };
+
+            foreach (var x in booking.ListOfRoomBooking.Rooms as IEnumerable<Room>)
+            {
+                foreach (var y in booking.ListOfRoomBooking.BookingList as IEnumerable<Booking>)
+                {
+                    if (y.RoomId == x.Id && y.CheckIn <= DateTime.UtcNow && y.CheckOut >= DateTime.UtcNow)
+                    {
+                        x.Available = false;
+                        break;
+                    }
+                    else
+                    {
+                        x.Available = true;
+                    }
+                }
+                if(booking.ListOfRoomBooking.BookingList.Count == 0)
+                {
+                    x.Available = true;
+                }
+            }
+            await context.SaveChangesAsync();
+            return View(booking);
         }
 
         public async Task<IActionResult> Save(int id)

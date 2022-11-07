@@ -23,7 +23,6 @@
             <th> Room Number </th>
             <th> Room Catagory </th>
             <th> Price </th>
-            <th> Available </th>
             <th> Description </th>
             <th> Maximum Guests </th>
             <th class="text-center">Action</th>
@@ -39,7 +38,6 @@
                     <td> @Html.DisplayFor(modelItem => item.RoomNumber) </td>
                     <td> @Html.DisplayFor(modelItem => item.RoomType.RoomTypeName) </td>
                     <td> @Html.DisplayFor(modelItem => item.Price) </td>
-                    <td class="text-center"> @Html.DisplayFor(modelItem => item.Available) </td>
                     <td> @Html.DisplayFor(modelItem => item.Description) </td>
                     <td class="text-center"> @Html.DisplayFor(modelItem => item.MaximumGuests) </td>
                     <td class="text-center">

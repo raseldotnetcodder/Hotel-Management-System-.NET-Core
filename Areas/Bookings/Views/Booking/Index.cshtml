@@ -1,4 +1,6 @@
-﻿@model HotelApplication.ViewModels.RoomsAdminIndexViewModel
+﻿
+@model HotelApplication.Models.Booking
+@using HotelApplication.ViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -15,21 +17,30 @@
     </div>
     <div class="row">
 
-        @foreach (var roomType in Model.RoomTypes as IEnumerable<RoomType>)
+        @foreach (var roomType in Model.ListOfRoomBooking.RoomTypes as IEnumerable<RoomType>)
         {
             <div class="col-md-4 ">
                 <div class="card mb-4 shadow-sm ">
                     <div class="card-body p-4">
                         <h4 class="card-title">@roomType.RoomTypeName</h4>
                         <div class="col-md-12 p-0">
-                            @foreach (var room in Model.Rooms as IEnumerable<Room>)
+                            @foreach (var room in Model.ListOfRoomBooking.Rooms as IEnumerable<Room>)
                             {
                                 if (roomType.RoomTypeName == room.RoomType.RoomTypeName)
                                 {
-                                    <div class="btn-group" style="padding:5px">
-                                        <a asp-action="Save" asp-controller="Booking" asp-route-id="@room.Id"
-                                           class="btn btn-sm btn-outline-primary">@room.RoomNumber</a>
-                                    </div>
+                                    if (room.Available == true)
+                                    {
+                                        <div class="btn-group" style="padding:5px">
+                                            <a asp-action="Save" asp-controller="Booking" asp-route-id="@room.Id" id="availability"
+                                               class="btn btn-sm btn-outline-primary">@room.RoomNumber</a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="btn-group" style="padding:5px">
+                                            <a id="availability" class="btn btn-sm btn-danger text-white">@room.RoomNumber</a>
+                                        </div>
+                                    }
                                 }
                             }
                         </div>
@@ -39,3 +50,10 @@
         }
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('#availability').val();
+    }
+
+</script>
