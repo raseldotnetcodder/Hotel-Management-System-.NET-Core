@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HotelApplication.Data
+namespace HotelApplication.Database
 {
     public class HotelDBContext : IdentityDbContext<ApplicationUser>
     {
@@ -30,7 +30,7 @@ namespace HotelApplication.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            
+
             // Room & Features relationship
             builder.Entity<RoomFeature>()
                 .HasKey(x => new { x.RoomId, x.FeatureId });
@@ -73,5 +73,3 @@ namespace HotelApplication.Data
         }
     }
 }
-
-

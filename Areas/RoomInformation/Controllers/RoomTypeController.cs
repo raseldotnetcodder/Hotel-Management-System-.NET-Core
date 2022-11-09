@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using HotelApplication.Data;
 using HotelApplication.Models;
 using Microsoft.AspNetCore.Http;
 using HotelApplication.Services.Interface;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using HotelApplication.Database;
 
 namespace HotelApplication.Areas.RoomInformation.Controllers
 {

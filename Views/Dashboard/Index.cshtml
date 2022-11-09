@@ -11,7 +11,6 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-
     </div>
 
     <!-- Content Row -->
@@ -24,7 +23,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h2>ORDER</h2>
+                                <h6>ORDER</h6>
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800"> 0 </div>
                         </div>
@@ -43,12 +42,12 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                BOOKED ROOM
+                                <h6>BOOKED ROOM</h6>
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.BookedRooms</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            <i class="fas fa-hotel fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -62,7 +61,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                AVAILABLE ROOM
+                                <h6>AVAILABLE ROOM</h6>
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
@@ -85,12 +84,104 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                GUESTS
+                                <h6>GUESTS</h6>
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.TotalGuests</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-people-arrows  fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Developers</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <div class="card mb-2 border-bottom-danger shadow-sm">
+                <img src="~/images/developers/rasel.png" style=" padding:10px;" />
+                <div class="card-body">
+                    <h5 class="card-title text-danger">RASEL AHMED</h5>
+                    <p class="card-text">Project Head</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-outline-danger">View details</a>
+                        </div>
+                        <small class="text-muted">codder</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card mb-2 border-bottom-primary shadow-sm">
+                <img src="~/images/developers/nahid.png" style="border-radius: 30px; padding: 10px;" />
+                <div class="card-body">
+                    <h5 class="card-title text-primary">NAHID HASAN</h5>
+                    <p class="card-text">Project Designer</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-outline-primary">View details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card mb-2 border-bottom-info shadow-sm">
+                <img src="~/images/developers/emran.png" style="border-radius: 30px; padding: 10px;" />
+                <div class="card-body">
+                    <h5 class="card-title text-info">EMRAN HOSSAIN</h5>
+                    <p class="card-text">Programmer</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-outline-info">View details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card mb-2 border-bottom-secondary shadow-sm">
+                <img src="~/images/developers/jonayat.png" style="border-radius: 30px; padding: 10px;" />
+                <div class="card-body">
+                    <h5 class="card-title text-secondary">JONAYAT HRIDOY</h5>
+                    <p class="card-text">Project Analyser</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-outline-secondary">View details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card mb-2 border-bottom-success shadow-sm">
+                <img src="~/images/developers/arif.png" style="border-radius: 30px; padding: 10px;" />
+                <div class="card-body">
+                    <h5 class="card-title text-success">MD ARIF ISLAM</h5>
+                    <p class="card-text">Tester</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-outline-secondary">View details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card mb-2 border-bottom-warning shadow-sm">
+                <img src="~/images/developers/beli.png" style="border-radius:30px; padding:10px;" />
+                <div class="card-body">
+                    <h5 class="card-title text-warning">BELI AKTER</h5>
+                    <p class="card-text">Tester</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-outline-warning">View details</a>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-﻿using HotelApplication.Data;
+﻿using HotelApplication.Database;
 using HotelApplication.Services.Interface;
 using HotelApplication.Services.RoomInformation;
 using Microsoft.AspNetCore.Builder;

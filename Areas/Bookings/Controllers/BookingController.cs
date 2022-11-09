@@ -1,5 +1,4 @@
-﻿using HotelApplication.Data;
-using HotelApplication.Models;
+﻿using HotelApplication.Models;
 using HotelApplication.Services.Interface;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HotelApplication.Database;
 
 namespace HotelApplication.Areas.Bookings.Controllers
 {

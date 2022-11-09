@@ -1,5 +1,5 @@
-﻿using HotelApplication.Data;
-using HotelApplication.Models;
+﻿using HotelApplication.Models;
+using HotelApplication.Database;
 using HotelApplication.Services.Interface;
 using HotelApplication.ViewModel;
 using Microsoft.AspNetCore.Hosting;

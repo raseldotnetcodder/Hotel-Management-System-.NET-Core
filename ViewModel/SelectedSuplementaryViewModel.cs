@@ -1,5 +1,4 @@
-﻿using HotelApplication.Data;
-using HotelApplication.Models;
+﻿using HotelApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

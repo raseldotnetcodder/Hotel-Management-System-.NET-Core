@@ -5,6 +5,25 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Areas\Bookings\Data\**" />
+    <Compile Remove="Areas\Bookings\Models\**" />
+    <Compile Remove="Areas\RoomInformation\Data\**" />
+    <Compile Remove="Areas\RoomInformation\Models\**" />
+    <Content Remove="Areas\Bookings\Data\**" />
+    <Content Remove="Areas\Bookings\Models\**" />
+    <Content Remove="Areas\RoomInformation\Data\**" />
+    <Content Remove="Areas\RoomInformation\Models\**" />
+    <EmbeddedResource Remove="Areas\Bookings\Data\**" />
+    <EmbeddedResource Remove="Areas\Bookings\Models\**" />
+    <EmbeddedResource Remove="Areas\RoomInformation\Data\**" />
+    <EmbeddedResource Remove="Areas\RoomInformation\Models\**" />
+    <None Remove="Areas\Bookings\Data\**" />
+    <None Remove="Areas\Bookings\Models\**" />
+    <None Remove="Areas\RoomInformation\Data\**" />
+    <None Remove="Areas\RoomInformation\Models\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="ByteSize" Version="2.1.1" />
@@ -23,14 +42,6 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Areas\Bookings\Data\" />
-    <Folder Include="Areas\Bookings\Models\" />
-    <Folder Include="Areas\RoomInformation\Data\" />
-    <Folder Include="Areas\RoomInformation\Models\" />
   </ItemGroup>
 
 </Project>
