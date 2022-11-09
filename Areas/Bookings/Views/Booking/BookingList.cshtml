@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<table class="table table-striped" style="margin-top:30px">
+<table class="table table-striped" style="margin-top:30px" id="myTable">
     <thead>
         <tr>
             <th> SL. </th>
@@ -60,8 +60,19 @@
     </tbody>
 </table>
 
-<script>
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script type="text/javascript">
     function Delete(id) {
         location.replace("/Bookings/Booking/Delete/" + id);
     }
+
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'pdf', 'copy', 'excel', 'print', 'csv'
+            ]
+        });
+    });
+
 </script>

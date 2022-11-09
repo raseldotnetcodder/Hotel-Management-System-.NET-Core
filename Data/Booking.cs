@@ -1,4 +1,5 @@
-﻿using HotelApplication.ViewModels;
+﻿using HotelApplication.Data;
+using HotelApplication.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -46,13 +47,28 @@ namespace HotelApplication.Models
         public decimal TotalFee { get; set; }
         public bool Paid { get; set; }
         public bool Completed { get; set; }
+
+        [Display(Name = "User ID")]
         public int? ApplicationUserId { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
+
+        [Display(Name = "Suplementary Services")]
+        public virtual ICollection<BookingSuplementary> Suplementaries { get; set; }
+
+        [Display(Name = "Complementary Services")]
+        public virtual ICollection<BookingComplementary> Complementaries { get; set; }
 
         [NotMapped]
         public RoomsAdminIndexViewModel ListOfRoomBooking { get; set; }
 
         [NotMapped]
         public IEnumerable<Booking> Bookings { get; set; }
+
+        public Booking()
+        {
+            CheckIn = DateTime.Today;
+            CheckOut = DateTime.Today;
+            DateCreated = DateTime.Today;
+        }
     }
 }

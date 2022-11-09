@@ -42,6 +42,28 @@
             </dl>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label asp-for="Suplementaries" class="h5 text-primary"></label>
+            @foreach (var suplementary in ViewBag.Suplementaries as IEnumerable<Suplementary>)
+            {
+                <div class="row" style="margin-bottom:3px;">
+                    <p class="col-sm-5">@suplementary.Name</p>
+                    <p class="col-sm-5">@suplementary.Price</p>
+                </div>
+            }
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Complementaries" class="h5 text-primary"></label>
+            @foreach (var complementary in ViewBag.Complementaries as IEnumerable<Complementary>)
+            {
+                <div class="row" style="margin-bottom:3px;">
+                    <p class="col-sm-5">@complementary.Name</p>
+                    <p class="col-sm-5">@complementary.Price</p>
+                </div>
+            }
+        </div>
+    </div>
 </div>
 
 <div>

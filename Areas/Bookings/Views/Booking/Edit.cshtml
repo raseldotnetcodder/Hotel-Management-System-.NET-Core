@@ -1,10 +1,11 @@
 ﻿@model HotelApplication.Models.Booking
+@using HotelApplication.ViewModel
 
 @{
     ViewData["Title"] = "Save";
 }
 
-<div class="container">
+<div class="" style="padding:10px;">
     <div class="row">
         <div class="col-md-1">
             <a asp-action="Index" class="btn btn-light" style="border-radius:50%"><i class='bx bx-arrow-back'></i></a>
@@ -22,7 +23,7 @@
         <input asp-for="BookingId" type="hidden" />
         <hr />
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="row form-group">
                     <label asp-for="ApplicationUserId" class="col-sm-3 control-label"></label>
                     <div class="col-sm-9">
@@ -74,7 +75,7 @@
                     <span asp-validation-for="Remarks" class="text-danger"></span>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="row form-group">
                     <label asp-for="DateCreated" class="col-sm-4 control-label"></label>
                     <div class="col-sm-8">
@@ -122,6 +123,31 @@
                         <input class="form-check-input" asp-for="Completed" />
                         @Html.DisplayNameFor(model => model.Completed)
                     </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Suplementaries" class="control-label text-primary"></label>
+                        @foreach (var suplementary in ViewBag.Suplementary as IEnumerable<SelectedSuplementaryViewModel>)
+                        {
+                            <p>
+                                <input type="checkbox" name="SelectedSuplementaryIDs" value="@suplementary.SuplementaryId" @Html.Raw(suplementary.Selected ? "checked=\"checked\"" : "") /> @suplementary.Suplementary.Name
+                            </p>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Complementaries" class="control-label text-primary"></label>
+                        @foreach (var complementary in ViewBag.Complementary as IEnumerable<SelectedComplementaryViewModel>)
+                        {
+                            <p>
+                                <input type="checkbox" name="SelectedComplementaryIDs" value="@complementary.ComplementaryId" @Html.Raw(complementary.Selected ? "checked=\"checked\"" : "") /> @complementary.Complementary.Name
+                            </p>
+                        }
+                    </div>
                 </div>
             </div>
         </div>

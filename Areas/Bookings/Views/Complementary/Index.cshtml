@@ -1,0 +1,54 @@
+﻿
+@model HotelApplication.Data.Complementary
+
+@{
+    ViewData["Title"] = "Complementary Services";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="h3">Complementary Services</h3>
+    </div>
+    <div class="col-md-6">
+        <div style="text-align:right;">
+            <a asp-action="Save" class="btn btn-primary" style="width:300px;"><i class='bx bx-plus'></i> Complementary Service</a>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped" style="margin-top:30px">
+    <thead>
+        <tr>
+            <th> SL. </th>
+            <th> @Html.DisplayNameFor(x => x.Name) </th>
+            <th> @Html.DisplayNameFor(x => x.Price) </th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 1;
+            foreach (var item in Model.Complementaries)
+            {
+                <tr>
+                    <td> @i. </td>
+                    <td> @Html.DisplayFor(modelItem => item.Name) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Price) </td>
+                    <td class="text-center">
+                        <a class="btn btn-sm btn-success" asp-action="Save" asp-route-id="@item.Id"><i class='bx bx-edit'></i></a> |
+                        <a class="btn btn-sm btn-info text-white" onclick="showInPopup('@Url.Action("Details", "Complementary", new { id = item.Id }, Context.Request.Scheme)')"><i class='bx bx-info-circle'></i></a> |
+                        <a class="btn btn-sm btn-danger" onclick="Delete(@item.Id)" href="#"><i class='bx bx-trash'></i></a>
+                    </td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>
+
+<script>
+    function Delete(id) {
+        location.replace("/Bookings/Complementary/Delete/" + id);
+    }
+</script>
+

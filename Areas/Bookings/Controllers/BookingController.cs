@@ -17,15 +17,18 @@ namespace HotelApplication.Areas.Bookings.Controllers
     public class BookingController : Controller
     {
         private readonly IRoomInformation<Booking> service;
+        private readonly IBooking<Booking> bookingServices;
         private readonly HotelDBContext context;
         private readonly IHostingEnvironment hostingEnvironment;
 
         public BookingController(HotelDBContext context,
             IRoomInformation<Booking> service,
+            IBooking<Booking> bookingServices,
             IHostingEnvironment hostingEnvironment)
         {
             this.context = context;
             this.service = service;
+            this.bookingServices = bookingServices;
             this.hostingEnvironment = hostingEnvironment;
         }
 
@@ -63,17 +66,19 @@ namespace HotelApplication.Areas.Bookings.Controllers
         public async Task<IActionResult> Save(int id)
         {
             Booking booking = new Booking();
-            booking.Room = context.Rooms.Where(x => x.Id == id).FirstOrDefault();
+            booking.Room = await context.Rooms.Where(x => x.Id == id).FirstOrDefaultAsync();
             booking.RoomNo = booking.Room.RoomNumber;
             booking.RoomId = booking.Room.Id;
 
+            ViewData["Suplementary"] = bookingServices.PopulateSelectedSuplementaryServices(booking);
+            ViewData["Complementary"] = bookingServices.PopulateSelectedComplementaryServices(booking);
             ViewData["ApplicationUserId"] = new SelectList(context.Users, "Id", "Id", booking.ApplicationUserId);
             return View(booking);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Save(Booking model)
+        public async Task<IActionResult> Save(Booking model, int[] SelectedSuplementaryIDs, int[] SelectedComplementaryIDs)
         {
             if (ModelState.IsValid)
             {
@@ -85,6 +90,8 @@ namespace HotelApplication.Areas.Bookings.Controllers
                 {
                     await service.Edit(model);
                 }
+                bookingServices.UpdateBookingSuplementaryList(model, SelectedSuplementaryIDs);
+                bookingServices.UpdateBookingComplementaryList(model, SelectedComplementaryIDs);
                 return RedirectToAction(nameof(BookingList));
             }
             return View(model);
@@ -96,8 +103,12 @@ namespace HotelApplication.Areas.Bookings.Controllers
             if (id != 0)
             {
                 booking = await service.Details(id);
+                ViewData["Suplementary"] = bookingServices.PopulateSelectedSuplementaryServices(booking);
+                ViewData["Complementary"] = bookingServices.PopulateSelectedComplementaryServices(booking);
                 return View(booking);
             }
+            ViewData["Suplementary"] = bookingServices.PopulateSelectedSuplementaryServices(booking);
+            ViewData["Complementary"] = bookingServices.PopulateSelectedComplementaryServices(booking);
             ViewData["ApplicationUserId"] = new SelectList(context.Users, "Id", "Id", booking.ApplicationUserId);
             return View(booking);
         }
@@ -127,6 +138,10 @@ namespace HotelApplication.Areas.Bookings.Controllers
             var ImagesAndFeatures = await service.GetRoomFeaturesAndImages(booking.Room);
             ViewData["Features"] = ImagesAndFeatures.Features;
             ViewData["Images"] = ImagesAndFeatures.Images;
+
+            var SuplementaryAndComplementary = await bookingServices.GetBookingSuplementaryAndComplementary(booking);
+            ViewData["Suplementaries"] = SuplementaryAndComplementary.Suplementaries;
+            ViewData["Complementaries"] = SuplementaryAndComplementary.Complementaries;
             return View(booking);
         }
 

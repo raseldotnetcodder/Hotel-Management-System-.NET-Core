@@ -226,7 +226,7 @@ namespace HotelApplication.Services.RoomInformation
                             });
                         }
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         continue;
                     }

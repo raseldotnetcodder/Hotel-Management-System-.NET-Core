@@ -37,6 +37,7 @@ namespace HotelApplication
 
             services.AddDbContext<HotelDBContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DB")));
             services.AddScoped(typeof(IRoomInformation<>), typeof(RoomInformationService<>));
+            services.AddScoped(typeof(IBooking<>), typeof(Bookings<>));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

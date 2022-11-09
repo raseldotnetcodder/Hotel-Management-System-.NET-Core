@@ -1,0 +1,17 @@
+﻿
+@model HotelApplication.Data.Suplementary
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+<h4>Suplementary Service Details</h4>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Name) </dt>
+        <dd class="col-sm-8"> @Html.DisplayFor(model => model.Name) </dd>
+        <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Price) </dt>
+        <dd class="col-sm-8"> @Html.DisplayFor(model => model.Price) </dd>
+    </dl>
+</div>

@@ -173,3 +173,9 @@ F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.csproj.CopyC
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Booking\Save.cshtml.g.cs
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Booking\BookingList.cshtml.g.cs
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Booking\Edit.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Complementary\Index.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Complementary\Save.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Complementary\Details.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Suplementary\Details.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Suplementary\Save.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Suplementary\Index.cshtml.g.cs
