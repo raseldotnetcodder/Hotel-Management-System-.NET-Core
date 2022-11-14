@@ -22,6 +22,7 @@ namespace HotelApplication.Database
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Complementary> Complementaries { get; set; }
         public DbSet<Suplementary> Suplementaries { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
         public DbSet<RoomFeature> RoomFeatureRelationships { get; set; }
         public DbSet<ItemImage> ItemImageRelationships { get; set; }
         public DbSet<BookingSuplementary> BookingSuplementaryRelationships { get; set; }

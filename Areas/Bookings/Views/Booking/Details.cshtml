@@ -34,12 +34,12 @@
                 <dd class="col-sm-7"> @Html.DisplayFor(model => model.CheckIn) </dd>
                 <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.CheckOut) </dt>
                 <dd class="col-sm-7"> @Html.DisplayFor(model => model.CheckOut) </dd>
-                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.TotalFee) </dt>
-                <dd class="col-sm-7"> @Html.DisplayFor(model => model.TotalFee) </dd>
-                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Paid) </dt>
-                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Paid) </dd>
-                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Completed) </dt>
-                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Completed) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Quantity) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Quantity) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.Amount) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.Amount) </dd>
+                <dt class="col-sm-5"> @Html.DisplayNameFor(model => model.TotalAmount) </dt>
+                <dd class="col-sm-7"> @Html.DisplayFor(model => model.TotalAmount) </dd>
             </dl>
         </div>
     </div>
@@ -48,9 +48,10 @@
             <label asp-for="Suplementaries" class="h5 text-primary"></label>
             @foreach (var suplementary in ViewBag.Suplementaries as IEnumerable<Suplementary>)
             {
-                <div class="row" style="margin-bottom:3px;">
-                    <p class="col-sm-5">@suplementary.Name</p>
-                    <p class="col-sm-5">@suplementary.Price</p>
+                <div class="row">
+                    <p class="col-sm-4">@suplementary.Name</p>
+                    <p class="col-sm-4">@suplementary.Amount</p>
+                    <p class="col-sm-4">@suplementary.TotalAmount</p>
                 </div>
             }
         </div>
@@ -58,9 +59,10 @@
             <label asp-for="Complementaries" class="h5 text-primary"></label>
             @foreach (var complementary in ViewBag.Complementaries as IEnumerable<Complementary>)
             {
-                <div class="row" style="margin-bottom:3px;">
-                    <p class="col-sm-5">@complementary.Name</p>
-                    <p class="col-sm-5">@complementary.Price</p>
+                <div class="row">
+                    <p class="col-sm-4">@complementary.Name</p>
+                    <p class="col-sm-4">@complementary.Amount</p>
+                    <p class="col-sm-4">@complementary.TotalAmount</p>
                 </div>
             }
         </div>

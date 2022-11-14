@@ -1,0 +1,65 @@
+﻿
+@model HotelApplication.Models.Booking
+
+@{
+    ViewData["Title"] = "Guest";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="h3">List for Invoice</h3>
+    </div>
+    <div class="col-md-6" style="text-align:right">
+        <a class="btn btn-sm btn-info text-white" asp-action="InvoiceList"><i class='bx bx-list-ol'></i> Invoice List</a>
+    </div>
+</div><hr />
+
+<table class="table table-striped" style="margin-top:30px" id="myTable">
+    <thead>
+        <tr>
+            <th> SL. </th>
+            <th> @Html.DisplayNameFor(x => x.CustomerName) </th>
+            <th> @Html.DisplayNameFor(x => x.CustomerPhone) </th>
+            <th> @Html.DisplayNameFor(x => x.Quantity) </th>
+            <th> @Html.DisplayNameFor(x => x.Amount) </th>
+            <th> @Html.DisplayNameFor(x => x.TotalAmount) </th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 1;
+            foreach (var item in Model.Bookings)
+            {
+                <tr>
+                    <td> @i. </td>
+                    <td> @Html.DisplayFor(modelItem => item.CustomerName) </td>
+                    <td> @Html.DisplayFor(modelItem => item.CustomerPhone) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Quantity) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Amount) </td>
+                    <td> @Html.DisplayFor(modelItem => item.TotalAmount) </td>
+                    <td class="text-center">
+                        <a class="btn btn-sm btn-success" asp-controller="Invoice" asp-action="Save" asp-route-id="@item.BookingId"><i class='bx bx-plus'></i> Invoice</a> |
+                        <a class="btn btn-sm btn-info text-white" onclick="showInPopup('@Url.Action("Details", "Booking", new { id = item.BookingId }, Context.Request.Scheme)')"><i class='bx bx-info-circle'></i></a>
+                    </td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>
+
+
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script type="text/javascript">
+    function Delete(id) {
+        location.replace("/Bookings/Booking/Delete/" + id);
+    }
+
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+
+        });
+    });
+
+</script>

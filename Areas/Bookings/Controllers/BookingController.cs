@@ -84,10 +84,14 @@ namespace HotelApplication.Areas.Bookings.Controllers
             {
                 if (model.BookingId == 0)
                 {
+                    model.Quantity = ((model.CheckOut.Date - model.CheckIn.Date).Days) + 1;
+                    model.TotalAmount = model.Amount * model.Quantity;
                     await service.Post(model);
                 }
                 else
                 {
+                    model.Quantity = ((model.CheckOut.Date - model.CheckIn.Date).Days) + 1;
+                    model.TotalAmount = model.Amount * model.Quantity;
                     await service.Edit(model);
                 }
                 bookingServices.UpdateBookingSuplementaryList(model, SelectedSuplementaryIDs);

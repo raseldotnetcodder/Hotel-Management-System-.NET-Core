@@ -225,9 +225,10 @@ namespace HotelApplication.Migrations
                     DateCreated = table.Column<DateTime>(type: "datetime", nullable: false),
                     CheckIn = table.Column<DateTime>(type: "datetime", nullable: false),
                     CheckOut = table.Column<DateTime>(type: "datetime", nullable: false),
+                    Quantity = table.Column<int>(nullable: true),
                     Guests = table.Column<int>(nullable: false),
-                    TotalFee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Paid = table.Column<bool>(nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Completed = table.Column<bool>(nullable: false),
                     ApplicationUserId = table.Column<int>(nullable: true),
                     ApplicationUserId1 = table.Column<string>(nullable: true)
@@ -319,6 +320,32 @@ namespace HotelApplication.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Invoices",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    InvoiceNumber = table.Column<int>(nullable: false),
+                    BookingId = table.Column<int>(nullable: false),
+                    SuplementaryId = table.Column<int>(nullable: false),
+                    ComplementaryId = table.Column<int>(nullable: false),
+                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    PaidAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    DueAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    Status = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Invoices", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Invoices_Bookings_BookingId",
+                        column: x => x.BookingId,
+                        principalTable: "Bookings",
+                        principalColumn: "BookingId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ItemImageRelationships",
                 columns: table => new
                 {
@@ -332,6 +359,100 @@ namespace HotelApplication.Migrations
                         name: "FK_ItemImageRelationships_Images_ImageId",
                         column: x => x.ImageId,
                         principalTable: "Images",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Complementaries",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
+                    Quantity = table.Column<int>(nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    InvoiceId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Complementaries", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Complementaries_Invoices_InvoiceId",
+                        column: x => x.InvoiceId,
+                        principalTable: "Invoices",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Suplementaries",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
+                    Quantity = table.Column<int>(nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    InvoiceId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Suplementaries", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Suplementaries_Invoices_InvoiceId",
+                        column: x => x.InvoiceId,
+                        principalTable: "Invoices",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BookingComplementaryRelationships",
+                columns: table => new
+                {
+                    BookingId = table.Column<int>(nullable: false),
+                    ComplementaryId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookingComplementaryRelationships", x => new { x.BookingId, x.ComplementaryId });
+                    table.ForeignKey(
+                        name: "FK_BookingComplementaryRelationships_Bookings_BookingId",
+                        column: x => x.BookingId,
+                        principalTable: "Bookings",
+                        principalColumn: "BookingId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BookingComplementaryRelationships_Complementaries_ComplementaryId",
+                        column: x => x.ComplementaryId,
+                        principalTable: "Complementaries",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BookingSuplementaryRelationships",
+                columns: table => new
+                {
+                    BookingId = table.Column<int>(nullable: false),
+                    SuplementaryId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookingSuplementaryRelationships", x => new { x.BookingId, x.SuplementaryId });
+                    table.ForeignKey(
+                        name: "FK_BookingSuplementaryRelationships_Bookings_BookingId",
+                        column: x => x.BookingId,
+                        principalTable: "Bookings",
+                        principalColumn: "BookingId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BookingSuplementaryRelationships_Suplementaries_SuplementaryId",
+                        column: x => x.SuplementaryId,
+                        principalTable: "Suplementaries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -376,6 +497,11 @@ namespace HotelApplication.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_BookingComplementaryRelationships_ComplementaryId",
+                table: "BookingComplementaryRelationships",
+                column: "ComplementaryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Bookings_ApplicationUserId1",
                 table: "Bookings",
                 column: "ApplicationUserId1");
@@ -386,9 +512,24 @@ namespace HotelApplication.Migrations
                 column: "RoomId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_BookingSuplementaryRelationships_SuplementaryId",
+                table: "BookingSuplementaryRelationships",
+                column: "SuplementaryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Complementaries_InvoiceId",
+                table: "Complementaries",
+                column: "InvoiceId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Images_RoomId",
                 table: "Images",
                 column: "RoomId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Invoices_BookingId",
+                table: "Invoices",
+                column: "BookingId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ItemImageRelationships_ImageId",
@@ -409,6 +550,11 @@ namespace HotelApplication.Migrations
                 name: "IX_Rooms_RoomTypeId",
                 table: "Rooms",
                 column: "RoomTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Suplementaries_InvoiceId",
+                table: "Suplementaries",
+                column: "InvoiceId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -429,7 +575,10 @@ namespace HotelApplication.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Bookings");
+                name: "BookingComplementaryRelationships");
+
+            migrationBuilder.DropTable(
+                name: "BookingSuplementaryRelationships");
 
             migrationBuilder.DropTable(
                 name: "ItemImageRelationships");
@@ -444,13 +593,25 @@ namespace HotelApplication.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Complementaries");
+
+            migrationBuilder.DropTable(
+                name: "Suplementaries");
 
             migrationBuilder.DropTable(
                 name: "Images");
 
             migrationBuilder.DropTable(
                 name: "Features");
+
+            migrationBuilder.DropTable(
+                name: "Invoices");
+
+            migrationBuilder.DropTable(
+                name: "Bookings");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Rooms");

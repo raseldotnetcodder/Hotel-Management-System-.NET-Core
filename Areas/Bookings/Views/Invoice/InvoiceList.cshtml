@@ -1,0 +1,72 @@
+﻿
+@model HotelApplication.Models.Invoice
+
+@{
+    ViewData["Title"] = "Booking List for Billing";
+}
+
+<div class="row">
+    <div class="row">
+        <div class="col-md-3">
+            <a asp-action="Index" class="btn btn-light" style="border-radius:50%"><i class='bx bx-arrow-back'></i></a>
+        </div>
+        <div class="col-md-9">
+            <h3 class="h3">Invoice List</h3>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped" style="margin-top:30px" id="myTable">
+    <thead>
+        <tr>
+            <th> SL. </th>
+            <th> @Html.DisplayNameFor(x => x.InvoiceNumber) </th>
+            <th> @Html.DisplayNameFor(x => x.Booking.CustomerName) </th>
+            <th> @Html.DisplayNameFor(x => x.Booking.CustomerPhone) </th>
+            <th> @Html.DisplayNameFor(x => x.PaidAmount) </th>
+            <th> @Html.DisplayNameFor(x => x.DueAmount) </th>
+            <th> @Html.DisplayNameFor(x => x.TotalAmount) </th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 1;
+            foreach (var item in Model.Invoices)
+            {
+                <tr>
+                    <td> @i. </td>
+                    <td> @Html.DisplayFor(modelItem => item.InvoiceNumber) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Booking.CustomerName) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Booking.CustomerPhone) </td>
+                    <td> @Html.DisplayFor(modelItem => item.PaidAmount) </td>
+                    <td> @Html.DisplayFor(modelItem => item.DueAmount) </td>
+                    <td> @Html.DisplayFor(modelItem => item.TotalAmount) </td>
+                    <td class="text-center">
+                        <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@item.BookingId"><i class='bx bx-edit'></i></a> |
+                        <a class="btn btn-sm btn-info text-white" onclick="showInPopup('@Url.Action("Details", "Booking", new { id = item.BookingId }, Context.Request.Scheme)')"><i class='bx bx-info-circle'></i></a> |
+                        <a class="btn btn-sm btn-danger" onclick="Delete(@item.BookingId)" href="#"><i class='bx bx-trash'></i></a>
+                    </td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>
+
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script type="text/javascript">
+    function Delete(id) {
+        location.replace("/Bookings/Booking/Delete/" + id);
+    }
+
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'pdf', 'copy', 'excel', 'print', 'csv'
+            ]
+        });
+    });
+
+</script>

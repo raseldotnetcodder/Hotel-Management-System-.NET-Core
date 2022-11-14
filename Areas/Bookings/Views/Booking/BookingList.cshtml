@@ -26,9 +26,9 @@
             <th> @Html.DisplayNameFor(x => x.CheckIn) </th>
             <th> @Html.DisplayNameFor(x => x.CheckOut) </th>
             <th> @Html.DisplayNameFor(x => x.Guests) </th>
-            <th> @Html.DisplayNameFor(x => x.TotalFee) </th>
-            <th> @Html.DisplayNameFor(x => x.Paid) </th>
-            <th> @Html.DisplayNameFor(x => x.Completed) </th>
+            <th> @Html.DisplayNameFor(x => x.Quantity) </th>
+            <th> @Html.DisplayNameFor(x => x.Amount) </th>
+            <th> @Html.DisplayNameFor(x => x.TotalAmount) </th>
             <th class="text-center">Action</th>
         </tr>
     </thead>
@@ -45,9 +45,9 @@
                     <td> @Html.DisplayFor(modelItem => item.CheckIn) </td>
                     <td> @Html.DisplayFor(modelItem => item.CheckOut) </td>
                     <td> @Html.DisplayFor(modelItem => item.Guests) </td>
-                    <td> @Html.DisplayFor(modelItem => item.TotalFee) </td>
-                    <td> @Html.DisplayFor(modelItem => item.Paid) </td>
-                    <td> @Html.DisplayFor(modelItem => item.Completed) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Quantity) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Amount) </td>
+                    <td> @Html.DisplayFor(modelItem => item.TotalAmount) </td>
                     <td class="text-center">
                         <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@item.BookingId"><i class='bx bx-edit'></i></a> |
                         <a class="btn btn-sm btn-info text-white" onclick="showInPopup('@Url.Action("Details", "Booking", new { id = item.BookingId }, Context.Request.Scheme)')"><i class='bx bx-info-circle'></i></a> |

@@ -166,5 +166,39 @@ namespace HotelApplication.Services.RoomInformation
             return ImagesAndFeatures;
         }
 
+        public IEnumerable<Suplementary> InvoiceSuplementary(int id)
+        {
+            var suplementary = (from A in context.Suplementaries
+                                join B in context.BookingSuplementaryRelationships on A.Id equals B.SuplementaryId
+                                join C in context.Bookings on B.BookingId equals C.BookingId
+                                where C.BookingId == id
+                                select new Suplementary
+                                {
+                                    Id = A.Id,
+                                    Name = A.Name,
+                                    Quantity = A.Quantity,
+                                    Amount = A.Amount,
+                                    TotalAmount = A.TotalAmount
+                                }).ToList();
+            return suplementary;
+        }
+
+        public IEnumerable<Complementary> InvoiceComplementary(int id)
+        {
+            var complementary = (from A in context.Complementaries
+                                 join B in context.BookingComplementaryRelationships on A.Id equals B.ComplementaryId
+                                 join C in context.Bookings on B.BookingId equals C.BookingId
+                                 where C.BookingId == id
+                                 select new Complementary
+                                 {
+                                     Id = A.Id,
+                                     Name = A.Name,
+                                     Quantity = A.Quantity,
+                                     Amount = A.Amount,
+                                     TotalAmount = A.TotalAmount
+                                 }).ToList();
+            return complementary;
+        }
+
     }
 }

@@ -40,12 +40,19 @@ namespace HotelApplication.Models
         [Display(Name = "Check Out")]
         [Column(TypeName = "datetime")]
         public DateTime CheckOut { get; set; }
+
+        [Display(Name = "Days")]
+        public int Quantity { get; set; }
         public int Guests { get; set; }
 
-        [Display(Name = "Total Fee")]
+        [Display(Name = "Amount")]
         [Column(TypeName = "decimal(18,2)")]
-        public decimal TotalFee { get; set; }
-        public bool Paid { get; set; }
+        public decimal Amount { get; set; }
+
+        [Display(Name = "Total Amount")]
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal TotalAmount { get; set; }
+
         public bool Completed { get; set; }
 
         [Display(Name = "User ID")]

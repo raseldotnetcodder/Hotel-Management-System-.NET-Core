@@ -19,64 +19,6 @@ namespace HotelApplication.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("HotelApplication.Data.BookingComplementary", b =>
-                {
-                    b.Property<int>("BookingId");
-
-                    b.Property<int>("ComplementaryId");
-
-                    b.HasKey("BookingId", "ComplementaryId");
-
-                    b.HasIndex("ComplementaryId");
-
-                    b.ToTable("BookingComplementaryRelationships");
-                });
-
-            modelBuilder.Entity("HotelApplication.Data.BookingSuplementary", b =>
-                {
-                    b.Property<int>("BookingId");
-
-                    b.Property<int>("SuplementaryId");
-
-                    b.HasKey("BookingId", "SuplementaryId");
-
-                    b.HasIndex("SuplementaryId");
-
-                    b.ToTable("BookingSuplementaryRelationships");
-                });
-
-            modelBuilder.Entity("HotelApplication.Data.Complementary", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Complementaries");
-                });
-
-            modelBuilder.Entity("HotelApplication.Data.Suplementary", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Suplementaries");
-                });
-
             modelBuilder.Entity("HotelApplication.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -138,6 +80,9 @@ namespace HotelApplication.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int?>("ApplicationUserId");
 
                     b.Property<string>("ApplicationUserId1");
@@ -163,7 +108,7 @@ namespace HotelApplication.Migrations
 
                     b.Property<int>("Guests");
 
-                    b.Property<bool>("Paid");
+                    b.Property<int?>("Quantity");
 
                     b.Property<string>("Remarks");
 
@@ -171,7 +116,7 @@ namespace HotelApplication.Migrations
 
                     b.Property<int>("RoomNo");
 
-                    b.Property<decimal>("TotalFee")
+                    b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("BookingId");
@@ -181,6 +126,57 @@ namespace HotelApplication.Migrations
                     b.HasIndex("RoomId");
 
                     b.ToTable("Bookings");
+                });
+
+            modelBuilder.Entity("HotelApplication.Models.BookingComplementary", b =>
+                {
+                    b.Property<int>("BookingId");
+
+                    b.Property<int>("ComplementaryId");
+
+                    b.HasKey("BookingId", "ComplementaryId");
+
+                    b.HasIndex("ComplementaryId");
+
+                    b.ToTable("BookingComplementaryRelationships");
+                });
+
+            modelBuilder.Entity("HotelApplication.Models.BookingSuplementary", b =>
+                {
+                    b.Property<int>("BookingId");
+
+                    b.Property<int>("SuplementaryId");
+
+                    b.HasKey("BookingId", "SuplementaryId");
+
+                    b.HasIndex("SuplementaryId");
+
+                    b.ToTable("BookingSuplementaryRelationships");
+                });
+
+            modelBuilder.Entity("HotelApplication.Models.Complementary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("InvoiceId");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InvoiceId");
+
+                    b.ToTable("Complementaries");
                 });
 
             modelBuilder.Entity("HotelApplication.Models.Feature", b =>
@@ -219,6 +215,44 @@ namespace HotelApplication.Migrations
                     b.HasIndex("RoomId");
 
                     b.ToTable("Images");
+                });
+
+            modelBuilder.Entity("HotelApplication.Models.Invoice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal?>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("BookingId");
+
+                    b.Property<int>("ComplementaryId");
+
+                    b.Property<decimal?>("DueAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("InvoiceNumber");
+
+                    b.Property<decimal?>("PaidAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Status");
+
+                    b.Property<int>("SuplementaryId");
+
+                    b.Property<decimal?>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("VAT")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookingId");
+
+                    b.ToTable("Invoices");
                 });
 
             modelBuilder.Entity("HotelApplication.Models.ItemImage", b =>
@@ -312,6 +346,31 @@ namespace HotelApplication.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RoomTypes");
+                });
+
+            modelBuilder.Entity("HotelApplication.Models.Suplementary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("InvoiceId");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InvoiceId");
+
+                    b.ToTable("Suplementaries");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -424,32 +483,6 @@ namespace HotelApplication.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("HotelApplication.Data.BookingComplementary", b =>
-                {
-                    b.HasOne("HotelApplication.Models.Booking", "Booking")
-                        .WithMany("Complementaries")
-                        .HasForeignKey("BookingId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("HotelApplication.Data.Complementary", "Complementary")
-                        .WithMany("Bookings")
-                        .HasForeignKey("ComplementaryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("HotelApplication.Data.BookingSuplementary", b =>
-                {
-                    b.HasOne("HotelApplication.Models.Booking", "Booking")
-                        .WithMany("Suplementaries")
-                        .HasForeignKey("BookingId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("HotelApplication.Data.Suplementary", "Suplementary")
-                        .WithMany("Bookings")
-                        .HasForeignKey("SuplementaryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("HotelApplication.Models.Booking", b =>
                 {
                     b.HasOne("HotelApplication.Models.ApplicationUser", "ApplicationUser")
@@ -462,11 +495,52 @@ namespace HotelApplication.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("HotelApplication.Models.BookingComplementary", b =>
+                {
+                    b.HasOne("HotelApplication.Models.Booking", "Booking")
+                        .WithMany("Complementaries")
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("HotelApplication.Models.Complementary", "Complementary")
+                        .WithMany("Bookings")
+                        .HasForeignKey("ComplementaryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("HotelApplication.Models.BookingSuplementary", b =>
+                {
+                    b.HasOne("HotelApplication.Models.Booking", "Booking")
+                        .WithMany("Suplementaries")
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("HotelApplication.Models.Suplementary", "Suplementary")
+                        .WithMany("Bookings")
+                        .HasForeignKey("SuplementaryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("HotelApplication.Models.Complementary", b =>
+                {
+                    b.HasOne("HotelApplication.Models.Invoice")
+                        .WithMany("Complementary")
+                        .HasForeignKey("InvoiceId");
+                });
+
             modelBuilder.Entity("HotelApplication.Models.Image", b =>
                 {
                     b.HasOne("HotelApplication.Models.Room")
                         .WithMany("RoomImages")
                         .HasForeignKey("RoomId");
+                });
+
+            modelBuilder.Entity("HotelApplication.Models.Invoice", b =>
+                {
+                    b.HasOne("HotelApplication.Models.Booking", "Booking")
+                        .WithMany()
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("HotelApplication.Models.ItemImage", b =>
@@ -504,6 +578,13 @@ namespace HotelApplication.Migrations
                         .WithMany("Features")
                         .HasForeignKey("RoomId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("HotelApplication.Models.Suplementary", b =>
+                {
+                    b.HasOne("HotelApplication.Models.Invoice")
+                        .WithMany("Suplementary")
+                        .HasForeignKey("InvoiceId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

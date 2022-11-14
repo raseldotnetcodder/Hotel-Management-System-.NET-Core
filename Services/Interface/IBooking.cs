@@ -14,5 +14,7 @@ namespace HotelApplication.Services.Interface
         void UpdateBookingSuplementaryList(Booking booking, int[] SelectedSuplementaryIDs);
         void UpdateBookingComplementaryList(Booking booking, int[] SelectedComplementaryIDs);
         Task<BookingSupComViewModel> GetBookingSuplementaryAndComplementary(Booking booking);
+        IEnumerable<Suplementary> InvoiceSuplementary(int id);
+        IEnumerable<Complementary> InvoiceComplementary(int id);
     }
 }

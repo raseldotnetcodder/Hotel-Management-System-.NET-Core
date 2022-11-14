@@ -120,7 +120,6 @@ F:\GitHub\HotelApplication\bin\Debug\netcoreapp2.2\HotelApplication.dll
 F:\GitHub\HotelApplication\bin\Debug\netcoreapp2.2\HotelApplication.pdb
 F:\GitHub\HotelApplication\bin\Debug\netcoreapp2.2\HotelApplication.Views.dll
 F:\GitHub\HotelApplication\bin\Debug\netcoreapp2.2\HotelApplication.Views.pdb
-F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.csproj.AssemblyReference.cache
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.GeneratedMSBuildEditorConfig.editorconfig
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.AssemblyInfoInputs.cache
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.AssemblyInfo.cs
@@ -179,3 +178,7 @@ F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Co
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Suplementary\Details.cshtml.g.cs
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Suplementary\Save.cshtml.g.cs
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Suplementary\Index.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.csproj.AssemblyReference.cache
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Invoice\Index.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Invoice\InvoiceList.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Invoice\Save.cshtml.g.cs
