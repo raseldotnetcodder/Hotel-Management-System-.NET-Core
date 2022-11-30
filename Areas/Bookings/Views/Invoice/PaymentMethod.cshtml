@@ -3,19 +3,59 @@
     ViewData["Title"] = "PaymentMethod";
 }
 
-<h1>PaymentMethod</h1>
+<h1 class="display-4" style="margin-left:30px; margin-top:30px;" >Payment Method</h1>
 
 
 
-<div class="row">
-    <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
+<div class="row" style="margin:30px">
+    <div class="card mb-3 shadow-sm" style="padding: 20px; margin-right: 15px;" id="payment">
+        <a asp-action="PaymentSuccess" asp-controller="Invoice" asp-area="Bookings" id="nameColor">
             <div class="row">
-                <img src="/images/paymentGetway/cash.jpg" alt="Cash" class="img-thumbnail col-md-4" />
-                <div class="card-body col-md-8">
-                    <h2 class="h2 card-title">Cash</h2>
+                <img src="/images/paymentGetway/cash.jpg" alt="Cash" class="col-md-6" style="width:200px; height:100px;" />
+                <div class="card-body col-md-6">
+                    <h1 class="h1 card-title">Cash</h1>
                 </div>
             </div>
-        </div>
+        </a>
+    </div>
+    <div class="card mb-3 shadow-sm" style="padding: 20px; margin-right: 15px;" id="payment">
+        <a asp-action="PaymentSuccess" asp-controller="Invoice" asp-area="Bookings" id="nameColor">
+            <div class="row">
+                <img src="/images/paymentGetway/bkash.png" alt="Bkash" class="col-md-5" style="width:200px; height:100px;" />
+                <div class="card-body col-md-7">
+                    <h1 class="h1 card-title">Bkash</h1>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="card mb-3 shadow-sm" style="padding: 20px; margin-right: 15px; " id="payment">
+        <a asp-action="PaymentSuccess" asp-controller="Invoice" asp-area="Bookings" id="nameColor">
+            <div class="row">
+                <img src="/images/paymentGetway/nagad.png" alt="Nagad" class="col-md-5" style="width:180px; height:100px;" />
+                <div class="card-body col-md-7">
+                    <h1 class="h1 card-title">Nagad</h1>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="card mb-3 shadow-sm" style="padding: 20px; margin-right: 15px; " id="payment">
+        <a asp-action="PaymentSuccess" asp-controller="Invoice" asp-area="Bookings" id="nameColor">
+            <div class="row">
+                <img src="/images/paymentGetway/rocket.png" alt="Rocket" class="col-md-5" style="width:200px; height:100px;" />
+                <div class="card-body col-md-7">
+                    <h1 class="h1 card-title">Rocket</h1>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="card mb-3 shadow-sm" style="padding: 20px; margin-right: 15px; " id="payment">
+        <a asp-action="PaymentSuccess" asp-controller="Invoice" asp-area="Bookings" id="nameColor">
+            <div class="row">
+                <img src="/images/paymentGetway/card.png" alt="Card" class="col-md-4" style="width:300px; height:100px;" />
+                <div class="card-body col-md-8">
+                    <h1 class="h1 card-title">Card</h1>
+                </div>
+            </div>
+        </a>
     </div>
 </div>

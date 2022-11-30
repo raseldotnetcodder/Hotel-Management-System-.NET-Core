@@ -170,3 +170,20 @@ body {
 .sidebar .sidebar-brand .sidebar-brand-text {
     color: #fff;
 }
+
+/*------------------------------------------------------------Payment Getway*/
+#nameColor {
+    color: black;
+    text-decoration: none;
+}
+
+#payment {
+    transition: 0.5s;
+}
+
+#payment:hover {
+    transform: scale(1.1);
+    background: #fcfcfc;
+    box-shadow: 1px, 1px, 1px, #000;
+    z-index: 2;
+}

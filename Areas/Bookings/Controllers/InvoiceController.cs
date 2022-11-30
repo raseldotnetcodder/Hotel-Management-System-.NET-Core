@@ -74,7 +74,7 @@ namespace HotelApplication.Areas.Bookings.Controllers
                 {
                     await service.Post(model);
                 }
-                return RedirectToAction(nameof(InvoiceList));
+                return RedirectToAction(nameof(PaymentMethod));
             }
             return View(model);
         }
@@ -85,7 +85,12 @@ namespace HotelApplication.Areas.Bookings.Controllers
             return View(data);
         }
 
-        public IActionResult PaymentMethod()
+        public IActionResult PaymentMethod(Invoice model)
+        {
+            return View();
+        }
+
+        public IActionResult PaymentSuccess()
         {
             return View();
         }

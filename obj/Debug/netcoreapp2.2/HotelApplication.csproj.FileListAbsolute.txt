@@ -183,3 +183,4 @@ F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\In
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Invoice\InvoiceList.cshtml.g.cs
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Invoice\Save.cshtml.g.cs
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Invoice\PaymentMethod.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Invoice\PaymentSuccess.cshtml.g.cs
