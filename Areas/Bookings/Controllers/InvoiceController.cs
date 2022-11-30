@@ -46,6 +46,14 @@ namespace HotelApplication.Areas.Bookings.Controllers
                 Complementary = bookingServices.InvoiceComplementary(id)
             };
 
+            var maxInvNo = context.Invoices.AsNoTracking().Max(x => x.InvoiceNumber);
+            if(maxInvNo == 0)
+            {
+                maxInvNo = 1000;
+            }
+            data.InvoiceNumber = maxInvNo + 1;
+
+            data.BookingId = data.Booking.BookingId;
             data.Amount = data.Booking.TotalAmount;
             foreach (var item in data.Suplementary)
             {
@@ -57,13 +65,29 @@ namespace HotelApplication.Areas.Bookings.Controllers
             return View(data);
         }
 
-        public async Task<IActionResult> InvoiceList()
+        [HttpPost]
+        public async Task<IActionResult> Save(Invoice model)
         {
-            Invoice data = new Invoice
+            if (ModelState.IsValid)
             {
-                Invoices = await service.Get()
-            };
+                if (model.Id == 0)
+                {
+                    await service.Post(model);
+                }
+                return RedirectToAction(nameof(InvoiceList));
+            }
+            return View(model);
+        }
+
+        public IActionResult InvoiceList()
+        {
+            var data = bookingServices.GetAllInvoiceAndBooking();
             return View(data);
+        }
+
+        public IActionResult PaymentMethod()
+        {
+            return View();
         }
     }
 }

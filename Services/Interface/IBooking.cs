@@ -16,5 +16,6 @@ namespace HotelApplication.Services.Interface
         Task<BookingSupComViewModel> GetBookingSuplementaryAndComplementary(Booking booking);
         IEnumerable<Suplementary> InvoiceSuplementary(int id);
         IEnumerable<Complementary> InvoiceComplementary(int id);
+        InvoiceAdminIndexViewModel GetAllInvoiceAndBooking();
     }
 }

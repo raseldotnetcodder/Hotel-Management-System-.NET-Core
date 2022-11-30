@@ -182,3 +182,4 @@ F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\HotelApplication.csproj.Assem
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Invoice\Index.cshtml.g.cs
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Invoice\InvoiceList.cshtml.g.cs
 F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Invoice\Save.cshtml.g.cs
+F:\GitHub\HotelApplication\obj\Debug\netcoreapp2.2\Razor\Areas\Bookings\Views\Invoice\PaymentMethod.cshtml.g.cs

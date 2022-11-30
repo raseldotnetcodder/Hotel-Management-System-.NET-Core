@@ -200,5 +200,19 @@ namespace HotelApplication.Services.RoomInformation
             return complementary;
         }
 
+
+        public InvoiceAdminIndexViewModel GetAllInvoiceAndBooking()
+        {
+            var bookings = context.Bookings.ToList();
+            var invoices = context.Invoices.ToList();
+
+            var InvoiceAdminIndexViewModel = new InvoiceAdminIndexViewModel
+            {
+                Bookings = bookings,
+                Invoices = invoices
+            };
+            return InvoiceAdminIndexViewModel;
+        }
+
     }
 }

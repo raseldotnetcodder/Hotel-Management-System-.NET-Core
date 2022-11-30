@@ -1,5 +1,5 @@
 ﻿
-@model HotelApplication.Models.Invoice
+@model HotelApplication.ViewModel.InvoiceAdminIndexViewModel
 
 @{
     ViewData["Title"] = "Booking List for Billing";
@@ -20,12 +20,12 @@
     <thead>
         <tr>
             <th> SL. </th>
-            <th> @Html.DisplayNameFor(x => x.InvoiceNumber) </th>
-            <th> @Html.DisplayNameFor(x => x.Booking.CustomerName) </th>
-            <th> @Html.DisplayNameFor(x => x.Booking.CustomerPhone) </th>
-            <th> @Html.DisplayNameFor(x => x.PaidAmount) </th>
-            <th> @Html.DisplayNameFor(x => x.DueAmount) </th>
-            <th> @Html.DisplayNameFor(x => x.TotalAmount) </th>
+            <th> Invoice Number</th>
+            <th> Name </th>
+            <th> Phone </th>
+            <th> Paid Amount </th>
+            <th> Due Amount </th>
+            <th> Total Amount </th>
             <th class="text-center">Action</th>
         </tr>
     </thead>

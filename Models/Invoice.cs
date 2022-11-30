@@ -45,5 +45,8 @@ namespace HotelApplication.Models
 
         [NotMapped]
         public IEnumerable<Invoice> Invoices { get; set; }
+
+        [NotMapped]
+        public IEnumerable<Booking> Bookings { get; set; }
     }
 }
