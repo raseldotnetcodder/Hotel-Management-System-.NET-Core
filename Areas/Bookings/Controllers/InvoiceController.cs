@@ -4,6 +4,7 @@ using HotelApplication.Services.Interface;
 using HotelApplication.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,8 +66,14 @@ namespace HotelApplication.Areas.Bookings.Controllers
             return View(data);
         }
 
+        public IActionResult InvoiceList()
+        {
+            var data = bookingServices.GetAllInvoiceAndBooking();
+            return View(data);
+        }
+
         [HttpPost]
-        public async Task<IActionResult> Save(Invoice model)
+        public async Task<IActionResult> PaymentMethod(Invoice model)
         {
             if (ModelState.IsValid)
             {
@@ -74,23 +81,11 @@ namespace HotelApplication.Areas.Bookings.Controllers
                 {
                     await service.Post(model);
                 }
-                return RedirectToAction(nameof(PaymentMethod));
             }
-            return View(model);
-        }
-
-        public IActionResult InvoiceList()
-        {
-            var data = bookingServices.GetAllInvoiceAndBooking();
-            return View(data);
-        }
-
-        public IActionResult PaymentMethod(Invoice model)
-        {
             return View();
         }
 
-        public IActionResult PaymentSuccess()
+        public async Task<IActionResult> PaymentSuccess(Invoice model)
         {
             return View();
         }
